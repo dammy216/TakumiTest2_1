@@ -50,6 +50,7 @@ internal class Program
 
                 string inputWord;  //入力された文字
 
+                //YかNを押すまでループ
                 while (true)
                 {
                     Console.WriteLine("続けて購入しますか? 続ける：Y、続けない：N");
@@ -70,8 +71,7 @@ internal class Program
                     }
                 }
 
-                if (inputWord == "Y") continue;
-                else if (inputWord == "N") break;
+                if (inputWord == "N") break;
             }
         }
 
