@@ -18,19 +18,20 @@ internal class Program
             int index;  //配列の指数
             int total = 0;  //合計金額
 
-        while (true)
-        {
-            Console.WriteLine("どの野菜を購入しますか？");
+            while (true)
+            {
+                Console.WriteLine("どの野菜を購入しますか？");
 
                 //野菜の一覧表示
                 for (index = 0; index < vegetables.Length; index++)
                 {
                     Console.WriteLine($"{index + 1} : {vegetables[index].Name} ({vegetables[index].Price}円)");
                 }
-                    
+
                 Console.WriteLine();
-               
-                int inputNumber = int.Parse(Console.ReadLine());    //入力された番号
+
+                //入力された番号
+                int.TryParse(Console.ReadLine(), out int inputNumber);
                 Console.WriteLine();
 
                 //バリデーションチェック
@@ -41,16 +42,13 @@ internal class Program
                 }
 
                 //選択した野菜の金額を加算
-                for (index = 0; index < vegetables.Length; index++)
-                {
-                    total += inputNumber == index + 1 ? vegetables[index].Price : 0;
-                }
-            
-            Console.WriteLine($"合計 : {total}円\n");
+                total += vegetables[inputNumber - 1].Price;     //forで回す必要なかった
 
-         //----------------------------------------------------------------------------------------
+                Console.WriteLine($"合計 : {total}円\n");
 
-            string inputWord;  //入力された文字
+                //----------------------------------------購入継続の有無---------------------------------------------
+
+                string inputWord;  //入力された文字
 
                 while (true)
                 {
@@ -70,12 +68,11 @@ internal class Program
                         Console.WriteLine("不正な値です\n");
                         continue;
                     }
-
                 }
 
                 if (inputWord == "Y") continue;
                 else if (inputWord == "N") break;
-        }
+            }
         }
 
         Accounting();
