@@ -7,9 +7,9 @@ internal class Program
         //野菜クラス
         var vegetables = new Vegetable[]
        {
-            new Cabbage(){ Name = "キャベツ", Price = 200},
-            new Carrot(){ Name = "にんじん", Price = 100},
-            new Potato(){ Name = "じゃがいも", Price = 150},
+            new Cabbage(),
+            new Carrot(),
+            new Potato(),
        };
 
         //会計処理の呼び出し
