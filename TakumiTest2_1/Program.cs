@@ -34,7 +34,13 @@ internal class Program
             Console.WriteLine();
 
             //入力された番号
-            int.TryParse(Console.ReadLine(), out int inputNumber);
+            bool isInputConverted = int.TryParse(Console.ReadLine(), out int inputNumber);
+            if (!isInputConverted)
+            {
+                Console.WriteLine("不正な値です\n");
+                continue;
+            }
+
             Console.WriteLine();
 
             //バリデーションチェック
